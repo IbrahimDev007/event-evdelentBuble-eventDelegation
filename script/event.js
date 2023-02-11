@@ -22,10 +22,16 @@ document.getElementById("submit").addEventListener('click', function() {
 //face problem  append child not accept text
 //  //event delegation
 
-    document.getElementById("delete").addEventListener('click',function (event) {
-        document.getElementById("parent").addEventListener
-    })
-    
+document.getElementById("parent").addEventListener('click', function(event) {
+    if (event.target.tagName === "LI") {
+      event.target.remove();
+    } else if (event.target.id === "delete") {
+      let parent = document.getElementById("parent");
+      while (parent.firstChild) {
+        parent.removeChild(parent.firstChild);
+      }
+    }
+  });
  
 
  //disabled button
